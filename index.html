@@ -1,0 +1,48 @@
+---
+layout: page
+title: Latest Posts
+description: "The personal blog of Hossain Mohd. Faysal, a doctoral candidate in Electrical Engineering at University of Pennsylvania."
+tags: [Hossain, Mohd, Faysal, electrical, engineering, blog, university, pennsylvania, doha, Qatar]
+---
+{% for post in paginator.posts limit:10 %} 
+
+        <article class="post tag-minimal tag-design tag-jurney post row">
+            <h2 class="post-title text-center super lighter">
+                <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+            </h2>
+            <div class="post-info text-center bordered-top col-md-2">
+                <time datetime="{{ post.date | date_to_xmlschema }}" class="post-time">{{ post.date | date: "%d %b %Y" }}</time>
+                 in <span class="post-tags">{{ post.categories | join: ', ' | capitalize }}</span>
+            </div>
+            <div class="post-body bordered-bottom col-md-8">
+                <p>{{ post.content | strip_html | truncatewords:100 }}&hellip;</p>
+                <a href="{{ site.url }}{{ post.url }}">
+                    read more...
+                </a>
+            </div>
+        </article>
+
+{% endfor %}        
+
+        
+        
+        <div class="row text-center text-caps">
+            <div class="col-md-8 col-md-offset-2">
+                <nav class="pagination" role="pagination">
+    
+    <span class="page-number">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+    
+    {% if paginator.previous_page %}
+      {% if paginator.previous_page == 1 %}
+      <a class="newer-posts" href="/" class="btn" title="Newer Posts">&larr; Newer Posts</a>
+      {% else %}
+     <a class="newer-posts" href="/page{{ paginator.previous_page }}/" class="btn" title="Newer Posts">&larr; Newer Posts</a>
+      {% endif %}
+    {% endif %}
+    {% if paginator.next_page %} 
+    <a class="older-posts" href="/page{{ paginator.next_page }}/" class="btn" title="Older Posts">Older Posts &rarr;</a>
+    {% endif %} 
+    
+</nav>
+</div>
+        </div>

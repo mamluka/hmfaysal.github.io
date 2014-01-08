@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% include head.html %}
+</head>
+<body class="home-template" itemscope itemtype="http://schema.org/WebPage">
+    
+    
+
+{% include header.html %}
+
+
+
+<div id="main" class="content" role="main" itemscope itemtype="http://schema.org/Blog">
+    <div class="container">
+
+        <article class="post tag-design tag-ghost-post post" itemscope itemtype="http://schema.org/BlogPosting">
+            <div class="row">
+                
+                
+                
+
+                {% if page.link %}
+                <h1 class="post-title text-center hyper lighter" itemprop="headline"><a href="{{ page.link }}">{{ page.title }} <span class="link-arrow">&rarr;</span></a></h1>
+                {% else %}
+                <h1 class="post-title text-center hyper lighter" itemprop="headline">{{ page.title }}</h1>
+                {% endif %}
+                <div class="post-info text-center bordered-top col-md-2">
+                    <time datetime="{{ page.date | date_to_xmlschema }}" class="post-time">{{ page.date | date: "%d %b %Y" }}</time>
+                     in <span class="post-tags"><a href="{{ site.url }}/categories/index.html#{{ page.categories | cgi_encode }}" title="Other posts from the {{ page.categories }} category" rel="tag">{{ page.categories | join: ', ' | capitalize }}</a></span>
+                </div>
+                <div class="post-body bordered-bottom col-md-8" itemprop="description">
+                    {{ content }}
+<br>
+                    <p>Tagged with {% for tag in page.tags %}<a href="{{ site.url }}/tags/index.html#{{ tag | cgi_encode }}" title="Pages tagged {{ tag }}" rel="tag">{{ tag }}</a>{% unless forloop.last %}&nbsp;&bull;&nbsp;{% endunless %}{% endfor %}</p></div>
+                
+            </div>
+            <footer class="post-footer">
+                <div class="row">
+                    <div class="post-share text-center bordered bordered-bottom col-md-8 col-md-offset-2">
+                        <p class="light">
+                            Share this post
+                        </p>
+                        <ul class="social-icons social-mini">
+                            <li>
+                                <a href="https://twitter.com/intent/tweet?text=&quot;{{ page.title }}&quot;%20{{ site.url }}{{ page.url }}%20via%20&#64;{{ site.owner.twitter }}" data-dnt="true" title="Share on Twitter">
+                                    <i class="icon-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" title="Share on Facebook" target="_blank">
+                                    <i class="icon-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://plus.google.com/share?url={{ site.url }}{{ page.url }}" title="Share on Google Plus" target="_blank">
+                                    <i class="icon-google-plus"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                
+                        {% include signoff.html %} 
+                        {% if site.disqus_shortname and page.comments %}<div id="disqus_thread"></div><!-- /#disqus_thread -->{% endif %}
+                    </div>
+                    
+                </div>
+
+            </footer>
+
+            
+
+        </article>
+    </div>
+</div>
+    {% include footer.html %}
+
+    
+{% include scripts.html %}  
+</body>
+</html>

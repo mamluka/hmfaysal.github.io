@@ -1,0 +1,17 @@
+{% if page.image.feature %}<header class="blog-header header-white header-overlay align-center align-middle"  style="background-image: url({{ site.url }}/images/{{ page.image.feature }})" > {% else %}  <header class="blog-header header-white header-overlay align-center align-middle"  style="background-image: url({{ site.url }}/images/{{ site.default_bg }})" >{% endif %}
+    <div class="header-inner">
+        <div class="container">
+            <a class="brand light" href="{{ site.url }}" role="banner" >
+                
+                    <img src="{{ site.url }}/images/{{ site.logo }}" alt="Blog Logo" />
+                
+            </a>
+            <h1 class="blog-title light" itemprop="name">
+                {{ site.title }}
+            </h1>
+            <h2 class="blog-description light bordered bordered-top" itemprop="description">
+                {{ site.description }}
+            </h2>
+        </div>
+    </div>
+</header>
