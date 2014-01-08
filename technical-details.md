@@ -24,4 +24,4 @@ This page is intended for the tech aficionados and contains specific technical d
 [^1]: [Jekyll](http://jekyllrb.com/) transforms plain text into static websites and blogs.
 [^2]: [kramdown](https://github.com/gettalong/kramdown) is yet-another-markdown-parser but fast, pure Ruby, using a strict syntax definition and supporting several common extensions.
 [^3]: [http://www.mathjax.org/community/mathjax-in-use/mathjax-in-use-instructions-and-how-tos/](http://www.mathjax.org/community/mathjax-in-use/mathjax-in-use-instructions-and-how-tos/)
-<a markdown="0" href="{{ site.url }}" class="btn">Check out my blog</a>
+<a markdown="0" href="{{ site.url }}" class="btn btn-primary btn-large">Check out my blog</a>
