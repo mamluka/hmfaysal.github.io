@@ -11,7 +11,7 @@ image:
 ---
 
 >"I find hope in the darkest of days, and focus in the brightest. I do not judge the universe."
--Dalai Lama
+> -- <cite>Dalai Lama</cite>
 
 My name is **Hossain Mohd. Faysal**, and this is my personal blog.  
 
