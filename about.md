@@ -23,4 +23,4 @@ Anyways, for now I'm just working toward changing the face of Electrical Enginee
 
 This website was built with Jekyll and personifies my view that *human perspectives should be allowed to be shared without any barriers and restrictions.*. Click on the Technical Details button below to know more about that.  
 
-<a markdown="0" href="{{ site.url }}/technical-details" class="btn-lg">Technical Details</a> <a markdown="0" href="{{ site.url }}" class="btn-lg">Check out my blog</a>
+<a markdown="0" href="{{ site.url }}/technical-details" class="btn btn-danger btn-large">Technical Details</a> <a markdown="0" href="{{ site.url }}" class="btn btn-success btn-large">Check out my blog</a>
