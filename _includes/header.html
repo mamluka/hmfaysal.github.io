@@ -1,4 +1,5 @@
 {% if page.image.feature %}<header class="blog-header header-white header-overlay align-center align-middle"  style="background-image: url({{ site.url }}/images/{{ page.image.feature }})" > {% else %}  <header class="blog-header header-white header-overlay align-center align-middle"  style="background-image: url({{ site.url }}/images/{{ site.default_bg }})" >{% endif %}
+{% if page.headline %}
     <div class="header-inner">
         <div class="container">
             <a class="brand light" href="{{ site.url }}" role="banner" >
@@ -13,5 +14,17 @@
                 {{ page.headline }}
             </h2>
         </div>
-    </div>
+    </div>{% else %}
+    <div class="header-inner">
+        <div class="container">
+            <a class="brand light" href="{{ site.url }}" role="banner" >
+                
+                    <img src="{{ site.url }}/images/{{ site.logo }}" alt="Blog Logo" />
+                
+            </a>
+            <h2 class="blog-title light" itemprop="name">
+                {{ site.title }}
+            </h2>
+        </div>
+    </div>{% endif %}
 </header>
