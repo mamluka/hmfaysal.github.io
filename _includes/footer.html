@@ -45,12 +45,18 @@
         <p class="copy-text">
         	<a href="{{ site.url }}/about/">{{ site.owner.name }}</a> &copy; {{ site.time | date: '%Y' }} &bull; All rights reserved.
         </p>
-        <p class="copy-text">
-            
-                {% for link in site.links %}
-                <a href="{% if link.external %}{{ link.url }}{% else %}{{ site.url }}{{ link.url }}{% endif %}" {% if link.external %}target="_blank"{% endif %}>{% if link.icon %}<i class="icon-{{ link.icon }}"></i>{% else %}{{ link.title }}{% endif %}&nbsp;&bull;</a>
-                {% endfor %}
-                <a href="{{ site.url }}/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i></a>{% if site.search %}<a class="dosearch"><i class="icon-search"></i> Search</a>{% endif %}
-        </p>
+        <ul class="menu-items">
+            {% for link in site.links %}
+			<li>
+				{% if link.external %}
+					<a href="{{ link.url }}">{% if link.icon %}<i class="icon-{{ link.icon }}"></i>{% else %}{{ link.title }}{% endif %}</a>&nbsp;&bull;
+				{% else %}
+					<a href="{{ site.url }}{{ link.url }}">{% if link.icon %}<i class="icon-{{ link.icon }}"></i>{% else %}{{ link.title }}{% endif %}</a>&nbsp;&bull;
+				{% endif %} 
+			</li>
+	        {% endfor %}
+	        <li><a href="{{ site.url }}/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+	        {% if site.search %}&nbsp;&bull;<li class="dosearch"><i class="icon-search"></i> Search</li>{% endif %}
+        </ul>
     </div>
 </footer>
