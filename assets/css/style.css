@@ -2348,37 +2348,9 @@ figcaption {
 #disqus_thread {
     margin-top: 2em;
 }
-#goog-fixurl ul {
-    padding-left: 0;
-    margin-left: 0;
-    list-style: none;
-}
-
-#goog-fixurl ul li {
-    list-style-type: none;
-}
-
-#goog-wm-qt {
-    width: auto;
-    margin-right: 10px;
-}
-
-#goog-wm-sb {
-    display: inline-block;
-    padding: 8px 20px;
-    color: #fff;
-    background-color: #000;
-    border: 2px solid #000!important;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
-}
-
-#goog-wm-sb:visited {
-    color: #fff;
-}
-
-#goog-wm-sb:hover {
-    color: #000;
-    background-color: #fff;
+.panda-404 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
