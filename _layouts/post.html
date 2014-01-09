@@ -32,7 +32,7 @@
                 <div class="post-body bordered-bottom col-md-8" itemprop="description">
                     {{ content }}
 <br>
-                    <p>Tagged with {% for tag in page.tags %}<a href="{{ site.url }}/tags/index.html#{{ tag | cgi_encode }}" title="Pages tagged {{ tag }}" rel="tag">{{ tag }}</a>{% unless forloop.last %}&nbsp;&bull;&nbsp;{% endunless %}{% endfor %}</p></div>
+                    <p><i class="icon-tags"></i> Tagged with {% for tag in page.tags %}<a href="{{ site.url }}/tags/index.html#{{ tag | cgi_encode }}" title="Pages tagged {{ tag }}" rel="tag">{{ tag }}</a>{% unless forloop.last %}&nbsp;&bull;&nbsp;{% endunless %}{% endfor %}</p></div>
                 
             </div>
             <footer class="post-footer">
