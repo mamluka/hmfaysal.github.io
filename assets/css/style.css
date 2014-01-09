@@ -633,6 +633,16 @@ html {
   font-size: 16px;
   padding: 0 12px;
 }
+/* - Menu - */
+.menu-items {
+  margin: 0;
+  padding: 0 0 48px;
+  list-style-type: none;
+}
+.menu-items li {
+  display: inline-block;
+}
+
 /* - Responsive videos -*/
 .videoWrapper {
   position: relative;
