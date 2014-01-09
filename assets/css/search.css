@@ -19,13 +19,6 @@ input[type="search"]::-webkit-search-decoration,input[type="search"]::-webkit-se
     border-radius: 4px;
 }
 
-.dosearch:hover {
-    background-color: #1a1a1a;
-    -webkit-box-shadow: inset 0 0 1px #fff;
-    -moz-box-shadow: inset 0 0 1px #fff;
-    box-shadow: inset 0 0 1px #fff;
-}
-
 .search-form {
     position: relative;
     top: 0;
