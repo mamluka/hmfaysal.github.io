@@ -4,6 +4,7 @@ title: "Bandwidth Woes"
 description: "My experience with slow-stuttering internet bandwidth during my travel in Banglaldesh"
 category: personal
 tags: [Banglalion,Bandwidth,Download,troubles]
+comments: true
 mathjax: true
 ---
 *"Lets buy a cheap [Blackberry](http://www.blackberry.com/)&#174;"*-I said to my mom in [Doha International Airport](http://www.dohaairport.com/)'s departure lounge while leaving for Bangladesh on 5th of April, 2013. I was so naive back then, so naive and juvenile and stupid. My logic was I would at least stay connected to my mail servers while I am acquiring an internet subscription which can take some time to get in Bangladesh. I used the [Blackberry&#174; Internet Services](http://www.ooredoo.qa/en/SP_BLACKBERRY)[^1] for as long as I can remember, and while you might squint at this, let me iterate that Blackberry devices along with BIS in particular is highly popular in the Middle-East. Considering the social environment and the whole rainy season deal, a cheap Blackberry handset looked like a viable option. So I got myself a [Blackberry&#174; 8520](http://uk.blackberry.com/smartphones/blackberry-curve-8520.html), which is not a great phone in anyways, but it handled my email requirements like a breeze as all the Blackberry devices are made to do. I stayed connected to my email account during the whole flight, even during takeoff, while the in-flight email services cost $1 per email viewing/sending, the Blackberry service is absolutely free of cost in-flight[^2] and a delight to use.  
