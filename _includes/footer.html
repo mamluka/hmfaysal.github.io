@@ -50,8 +50,7 @@
                 {% for link in site.links %}
                 <a href="{% if link.external %}{{ link.url }}{% else %}{{ site.url }}{{ link.url }}{% endif %}" {% if link.external %}target="_blank"{% endif %}>{% if link.icon %}<i class="icon-{{ link.icon }}"></i>{% else %}{{ link.title }}{% endif %}&nbsp;&bull;</a>
                 {% endfor %}
-                <a href="{{ site.url }}/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i></a>
-            
+                <a href="{{ site.url }}/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i></a>{% if site.search %}<a class="dosearch"><i class="icon-search"></i> Search</a>{% endif %}
         </p>
     </div>
 </footer>
