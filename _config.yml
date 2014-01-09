@@ -2,7 +2,7 @@ title:            HMFAYSAL
 description:      An Engineer's Diary
 logo:             gamma-1.png
 disqus_shortname: hmfaysal
-default_bg:       blog_image-1.png
+default_bg:       blog_image-1.jpg
 search: 		  true
 #Change url to your domain. Leave localhost server or blank when working locally.
 url:              http://hmfaysal.github.io
