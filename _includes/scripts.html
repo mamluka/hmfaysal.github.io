@@ -38,6 +38,33 @@
   })( jQuery, window );
 </script>
 {% endif %}
+<script>
+/*globals jQuery, document */
+(function ($) {
+    "use strict";
+
+    $(document).ready(function () {
+
+        // Tooltip init
+        tooltipInit();
+
+        // Init the posts
+        postInit();
+
+    });
+
+
+    // Init bootstrap tooltip
+
+
+    function tooltipInit() {
+        $('[data-toggle]').tooltip();
+    }
+
+
+
+}(jQuery));
+</script>
 {% if site.google_analytics %}
 <!-- Asynchronous Google Analytics snippet -->
 <script>
