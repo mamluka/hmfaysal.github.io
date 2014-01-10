@@ -27,12 +27,12 @@
                 {% endif %}
                 <div class="post-info text-center bordered-top col-md-2">
                     <time datetime="{{ page.date | date_to_xmlschema }}" class="post-time">{{ page.date | date: "%d %b %Y" }}</time>
-                     in <span class="post-tags"><a href="{{ site.url }}/categories/index.html#{{ page.categories | cgi_encode }}" title="Other posts from the {{ page.categories }} category" rel="tag">{{ page.categories | join: ', ' | capitalize }}</a></span>
+                     in <span class="post-tags"><a href="{{ site.url }}/categories/index.html#{{ page.categories | cgi_encode }}" data-toggle="tooltip" title="Other posts from the {{ page.categories }} category" rel="tag">{{ page.categories | join: ', ' | capitalize }}</a></span>
                 </div>
                 <div class="post-body bordered-bottom col-md-8" itemprop="description">
                     {{ content }}
 <br>
-                    <p><i class="icon-tags"></i>&nbsp;Tagged with {% for tag in page.tags %}<a href="{{ site.url }}/tags/index.html#{{ tag | cgi_encode }}" title="Pages tagged {{ tag }}" rel="tag">{{ tag }}</a>{% unless forloop.last %}&nbsp;&bull;&nbsp;{% endunless %}{% endfor %}</p></div>
+                    <p><i class="icon-tags"></i>&nbsp;Tagged with {% for tag in page.tags %}<a href="{{ site.url }}/tags/index.html#{{ tag | cgi_encode }}" data-toggle="tooltip" title="Pages tagged with {{ tag }}" rel="tag">{{ tag }}</a>{% unless forloop.last %}&nbsp;&bull;&nbsp;{% endunless %}{% endfor %}</p></div>
                 
             </div>
             <footer class="post-footer">
