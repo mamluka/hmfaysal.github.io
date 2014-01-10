@@ -3,30 +3,32 @@
 <head>
 {% include head.html %}
 </head>
-<body class="post-template tag-people tag-nature">
+<body class="post-template" itemscope itemtype="http://schema.org/WebPage">
     
     
 
 {% include header.html %}
 
 
-<div id="main" class="content" role="main">
+
+<div id="main" class="content" role="main" itemscope itemtype="http://schema.org/Blog">
     <div class="container">
 
-        <div class="row">
-            <article class="post tag-people tag-nature post post col-md-8 col-md-offset-2">
+        <article class="post tag-design tag-ghost-post post" itemscope itemtype="http://schema.org/BlogPosting">
+            <div class="row">
+                
+                {% assign readtime = page.content | number_of_words | divided_by:335 %} 
+                
 
-                    {% assign readtime = page.content | number_of_words | divided_by:335 %}
-                    
-
-                    
-                    
-
-                    <header class="post-header">
-                        <h1 class="post-title text-center hyper lighter bordered-bottom">{{ page.title }}</h1>
-                        <div class="post-info text-center small">
-                            <time datetime="{{ page.date | date_to_xmlschema }}" class="post-time">{{ page.date | date: "%d %b %Y" }}</time>
-                             in <span class="post-tags"><a href="{{ site.url }}/categories/index.html#{{ page.categories | cgi_encode }}" data-toggle="tooltip" title="Other posts from the {{ page.categories }} category" rel="tag">{{ page.categories | join: ', ' | capitalize }}</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>{% if readtime == 1 %}
+                {% if page.link %}
+                <h1 class="post-title text-center hyper lighter" itemprop="headline"><a href="{{ page.link }}">{{ page.title }} <span class="link-arrow">&rarr;</span></a></h1>
+                {% else %}
+                <h1 class="post-title text-center hyper lighter" itemprop="headline">{{ page.title }}</h1>
+                {% endif %}
+                <div class="post-info text-center bordered-top col-md-2">
+                    <time datetime="{{ page.date | date_to_xmlschema }}" class="post-time">{{ page.date | date: "%d %b %Y" }}</time>
+                     in <span class="post-tags"><a href="{{ site.url }}/categories/index.html#{{ page.categories | cgi_encode }}" data-toggle="tooltip" title="Other posts from the {{ page.categories }} category" rel="tag">{{ page.categories | join: ', ' | capitalize }}</a></span>
+                     <i class="icon-time"></i> {% if readtime == 1 %}
                     1 minute read
                     {% endif %}
                     {% if readtime > 1 %}
@@ -35,57 +37,59 @@
                     {% if readtime == 0 %}
                     Less than 1 minute read
                     {% endif %}
-</span>
-
-                        </div>
-                    </header>
-                    <div class="post-body bordered-bottom">
-                        {{ content }}
+                </div>
+                <div class="post-body bordered-bottom col-md-8" itemprop="description">
+                    {{ content }}
 <br>
-                    <p><i class="icon-tags"></i> Tagged with {% for tag in page.tags %}<a href="{{ site.url }}/tags/index.html#{{ tag | cgi_encode }}" data-toggle="tooltip" title="Posts tagged with {{ tag }}" rel="tag">{{ tag }}</a>{% unless forloop.last %}&nbsp;&bull;&nbsp;{% endunless %}{% endfor %}</p></div>
+                    <p><i class="icon-tags"></i>&nbsp;Tagged with {% for tag in page.tags %}<a href="{{ site.url }}/tags/index.html#{{ tag | cgi_encode }}" data-toggle="tooltip" title="Posts tagged with {{ tag }}" rel="tag">{{ tag }}</a>{% unless forloop.last %}&nbsp;&bull;&nbsp;{% endunless %}{% endfor %}</p></div>
+                
+            </div>
+            <footer class="post-footer">
+                <div class="row">
+                    <div class="post-share text-center bordered bordered-bottom col-md-8 col-md-offset-2">
+                        <p class="light">
+                            Share this post
+                        </p>
+                        <ul class="social-icons social-mini">
+                            <li>
+                                <a href="https://twitter.com/intent/tweet?text=&quot;{{ page.title }}&quot;%20{{ site.url }}{{ page.url }}%20via%20&#64;{{ site.owner.twitter }}"
+                                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter">
+                                    <i class="icon-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a  href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}"
+                                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" data-toggle="tooltip" title="Share on Facebook">
+                                    <i class="icon-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://plus.google.com/share?url={{ site.url }}{{ page.url }}"
+                               onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" data-toggle="tooltip" title="Share on Google plus">
+                                    <i class="icon-google-plus"></i>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-
-                    <footer class="post-footer">
-
-                        <div class="post-share text-center">
-                            <p class="light small">
-                                Share this post
-                            </p>
-                            <ul class="social-mini">
-                                <li>
-                                    <a href="https://twitter.com/intent/tweet?text=&quot;{{ page.title }}&quot;%20{{ site.url }}{{ page.url }}%20via%20&#64;{{ site.owner.twitter }}"
-                                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter">
-                                        <i class="icon-twitter"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a  href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}"
-                                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" data-toggle="tooltip" title="Share on Facebook">
-                                        <i class="icon-facebook"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://plus.google.com/share?url={{ site.url }}{{ page.url }}"
-                                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" data-toggle="tooltip" title="Share on Google plus">
-                                        <i class="icon-google-plus"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        {% include signoff.html %} 
-                        {% if site.disqus_shortname and page.comments %}<div id="disqus_thread"></div><!-- /#disqus_thread -->{% endif %}
-
-                    </footer>
+                </div>
 
                 
+                        {% include signoff.html %} 
+                        {% if site.disqus_shortname and page.comments %}<div id="disqus_thread"></div><!-- /#disqus_thread -->{% endif %}
+                    </div>
+                    
+                </div>
 
-            </article>
+            </footer>
+
+            
+
+        </article>
     </div>
 </div>
-{% include footer.html %}
+    {% include footer.html %}
 
     
-{% include scripts.html %} 
+{% include scripts.html %}  
 </body>
 </html>
