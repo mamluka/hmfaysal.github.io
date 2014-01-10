@@ -41,7 +41,7 @@
                 <div class="post-body bordered-bottom col-md-8" itemprop="description">
                     {{ content }}
 <br>
-                    <p><i class="icon-tags"></i>&nbsp;Tagged with {% for tag in page.tags %}<a href="{{ site.url }}/tags/index.html#{{ tag | cgi_encode }}" data-toggle="tooltip" title="Pages tagged with {{ tag }}" rel="tag">{{ tag }}</a>{% unless forloop.last %}&nbsp;&bull;&nbsp;{% endunless %}{% endfor %}</p></div>
+                    <p><i class="icon-tags"></i>&nbsp;Tagged with {% for tag in page.tags %}<a href="{{ site.url }}/tags/index.html#{{ tag | cgi_encode }}" data-toggle="tooltip" title="Posts tagged with {{ tag }}" rel="tag">{{ tag }}</a>{% unless forloop.last %}&nbsp;&bull;&nbsp;{% endunless %}{% endfor %}</p></div>
                 
             </div>
             <footer class="post-footer">
