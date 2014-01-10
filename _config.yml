@@ -5,7 +5,7 @@ disqus_shortname: hmfaysal
 default_bg:       blog_image-1.jpg
 search: 		  true
 #Change url to your domain. Leave localhost server or blank when working locally.
-#url:              http://hmfaysal.github.io
+url:              http://hmfaysal.github.io
 
 # Owner/author information
 owner:
