@@ -13,7 +13,7 @@ tags: [Hossain, Mohd, Faysal, electrical, engineering, blog, university, pennsyl
             </h2>
             <div class="post-info text-center bordered-top col-md-2">
                 <time datetime="{{ post.date | date_to_xmlschema }}" class="post-time">{{ post.date | date: "%d %b %Y" }}</time>
-                 in <span class="post-tags"><a href="{{ site.url }}/categories/index.html#{{ post.categories | cgi_encode }}" data-toggle="tooltip" title="Other posts from the {{ page.categories }} category" rel="tag">{{ post.categories | join: ', ' | capitalize }}</a></span>
+                 in <span class="post-tags"><a href="{{ site.url }}/categories/index.html#{{ post.categories | cgi_encode }}" data-toggle="tooltip" title="Other posts from the {{ post.categories }} category" rel="tag">{{ post.categories | join: ', ' | capitalize }}</a></span>
                  <span class="post-tags"><i class="icon-time"></i>{% if readtime == 1 %}
                     1 minute read
                     {% endif %}
