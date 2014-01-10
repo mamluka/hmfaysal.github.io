@@ -7,14 +7,15 @@ tags: [Hossain, Mohd, Faysal, electrical, engineering, blog, university, pennsyl
 ---
 {% for post in paginator.posts limit:10 %} 
 {% assign readtime = post.content | number_of_words | divided_by:335 %}
-        <article class="post tag-minimal tag-design tag-jurney post row">
-            <h2 class="post-title text-center super lighter">
-                <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
-            </h2>
-            <div class="post-info text-center bordered-top col-md-2">
-                <time datetime="{{ post.date | date_to_xmlschema }}" class="post-time">{{ post.date | date: "%d %b %Y" }}</time>
-                 in <span class="post-tags">{{ post.categories | join: ', ' | capitalize }}</span>
-                 <span class="post-tags">{% if readtime == 1 %}
+        <div class="row">
+            <article class="post tag-people tag-nature post col-md-8 col-md-offset-2">
+               <header class="post-header">
+                    <h2 class="post-title text-center super lighter bordered-bottom">
+                        <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+                    </h2>
+                    <div class="post-info text-center small">
+                        <time datetime="{{ post.date | date_to_xmlschema }}" class="post-time">{{ post.date | date: "%d %b %Y" }}</time>
+                         in <span class="post-tags">{{ post.categories | join: ', ' | capitalize }}</span>&nbsp;<span class="post-tags"><i class="icon-time"></i>{% if readtime == 1 %}
                     1 minute read
                     {% endif %}
                     {% if readtime > 1 %}
@@ -22,15 +23,19 @@ tags: [Hossain, Mohd, Faysal, electrical, engineering, blog, university, pennsyl
                     {% endif %}
                     {% if readtime == 0 %}
                     Less than 1 minute read
-                    {% endif %}</span>
-            </div>
-            <div class="post-body bordered-bottom col-md-8">
-                <p>{{ post.content | strip_html | truncatewords:100 }}&hellip;</p>
-                <a href="{{ site.url }}{{ post.url }}" {% if post.description %}data-toggle="tooltip" title="{{ post.description }}"{% endif %}>
-                    read more...
-                </a>
-            </div>
-        </article>
+                    {% endif %}
+</span>
+                    </div>
+                </header>
+                <div class="post-body bordered-bottom">
+                    <p>{{ post.content | strip_html | truncatewords:100 }}&hellip;</p>
+                    <a href="{{ site.url }}{{ post.url }}" {% if post.description %}data-toggle="tooltip" title="{{ post.description }}"{% endif %}>
+                        read more
+                    </a>
+                </div>
+
+            </article>
+        </div>
 
 {% endfor %}        
 
