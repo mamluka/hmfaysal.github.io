@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Deploying this site: Github and FTPloy &#8211; HMFAYSAL</title>
+<meta name="description" content="Blogging has never been this easy!">
+<meta name="keywords" content="Github, FTPloy, Deployment">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="/images/machine.jpg">
+
+<meta name="twitter:title" content="Deploying this site: Github and FTPloy">
+<meta name="twitter:description" content="Blogging has never been this easy!">
+<meta name="twitter:creator" content="@hmfaysal">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deploying this site: Github and FTPloy">
+<meta property="og:description" content="Blogging has never been this easy!">
+<meta property="og:url" content="/personal/deploying-this-site">
+<meta property="og:site_name" content="HMFAYSAL">
+
+
+<meta name="msvalidate.01" content="E9492EC66B5CCD89D3A5F4BC9F3FEC3E">
+
+
+<link rel="canonical" href="/personal/deploying-this-site">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="HMFAYSAL Feed">
+<link rel="author" href="https://plus.google.com/u/0/102602916593522619858?rel=author">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
+
+    <div class="search-wrapper">
+    <div class="search-form">
+        <input type="text" class="search-field" placeholder="Search...">
+        <i class="icon-remove-sign"></i>
+        <ul class="search-results post-list"></ul><!-- /.search-results -->
+    </div><!-- /.search-form -->
+</div><!-- ./search-wrapper -->
+
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+<body class="post-template" itemscope itemtype="http://schema.org/WebPage">
+    
+    
+
+<header class="blog-header header-white header-overlay align-center align-middle"  style="background-image: url(/images/machine.jpg)" > 
+
+    <div class="header-inner">
+        <div class="container">
+            <a class="brand light" href="" role="banner" >
+                
+                    <img src="/images/gamma-1.png" alt="Blog Logo" />
+                
+            <h2 class="blog-title light" itemprop="name">
+                HMFAYSAL
+            </h2>
+            </a>
+        </div>
+    </div>
+</header>
+
+
+
+<div id="main" class="content" role="main" itemscope itemtype="http://schema.org/Blog">
+    <div class="container">
+
+        <article class="post tag-design tag-ghost-post post" itemscope itemtype="http://schema.org/BlogPosting">
+            <div class="row">
+                
+                 
+                
+
+                
+                <h1 class="post-title text-center hyper lighter" itemprop="headline">Deploying this site: Github and FTPloy</h1>
+                
+                <div class="post-info text-center bordered-top col-md-2">
+                    <time datetime="2013-11-03T00:00:00+00:00" class="post-time">03 Nov 2013</time>
+                     in <span class="post-tags"><a href="/categories/index.html#personal" data-toggle="tooltip" title="Other posts from the personal category" rel="tag">Personal</a></span>
+                     <i class="icon-time"></i> 
+                    
+                    2 minutes read
+                    
+                    
+                </div>
+                <div class="post-body bordered-bottom col-md-8" itemprop="description">
+                    <p>When it comes to manage any coding project, <a href="http://git-scm.com/">Git</a> is second to none for version control manager. I love Git. Its simple, easy and its awesome branching capabilities give tremendous push when developing something, whether its a big project or small. <a href="http://github.com">Github</a> simply adds in to the experience as it opens up the door for collaboration. Now there is service called the <a href="http://pages.github.com/">Github Pages</a> which has a Jekyll parser built right into it. It means, you have to upload your textile and markdown files, your layout folder and any other folder you would want to use if you&#8217;d have in case you wanted to generate the site locally- to a Github repository. From there its as simple as to create a new branch called <em>gh-pages</em> and the site gets generated and becomes live. Then all a user has to write a new post/page and save the file as markdown and commit/push the changes to the repo and the changes are shown instantly on the website.</p>
+
+<p>While I like the automated Jekyll parsing feature of the Github pages, I do not like their server uptime and the lack of support for custom Jekyll plugins. Instead I went towards a free hosting service, and like all other free hosting services out there, it comes with a cPanel look-alike control center and does not include SSH terminal. This means I cannot install <a href="http://dropbox.com">Dropbox</a> or Git in it to make a pull request everytime I post or change something. My options were limited to age-old File Transfer Protocol (FTP), I say this in this way not to belittle the FTP. FTP itself is a robust transfer protocol and used by millions all over the world. I say this because its not pragmatic to use it with Jekyll. Jekyll generates the site in a specified destination folder and everytime the site is updated, only some files gets changed. I could&#8217;ve used <code>git diff</code> command to look for the changed files and upload them one by one through FTP. If you think about it, this seriously hurts the workflow and takes the concentration away from the main motif of this project -WRITING. So there was no way I would use FTP even with Git. I had to figure something out for my Git repo to do it for me.</p>
+
+<p>I soon figured out <a href="https://github.com/dmathieu/glynn‎">Glynn</a>, a command line Ruby utility to push the changed/updated files to a specified server. But that idea was short-lived when I found out it was made specifically for MAC OS and does not work on Windows Platform. I decided to use the web based services that offer Github to FTP services.</p>
+
+<p>Then, I figured out <a href="http://deployhq.com">DeployHQ</a>. Its a web based service that allows you to deploy a provided git to a server using the FTP protocol. The free plan gives a user the ability to have one project with 10 deployments per day. I would note that DeployHQ does not support automatic deployment, once you&#8217;ve added/changed something in your project and committed the changes, you have to press the green &#8220;Deploy Now&#8221; button in your account page to push the files through FTP. It was a breeze until I found that sometimes during busy times of the day, the service is not that reliable. And changing the repository to a different repo with the exact same files freezes the whole deployment process. Again, I started looking for a reliable deployment tool that would help me deploy from my Github Repository to my web server via FTP and I found  <a href="http://www.ftploy.com">FTPloy</a>. The best thing about FTPloy&#8217;s service is that they offer automated deployments to your server upon committing and pushing the changes in Github, it takes away all the useless clicks I had to perform to deploy the site with DeployHQ. This greatly streamlines the process of writing and blogging. After writing a blog post, I simply run the following five commands from the command line in my local workspace:  </p>
+
+<div class="highlight"><pre><code class="ruby"><span class="err">$</span> <span class="n">git</span> <span class="n">build</span> <span class="o">--</span><span class="n">destination</span> <span class="o">&lt;</span><span class="n">destionation</span><span class="o">&gt;</span>
+<span class="err">$</span> <span class="n">cd</span> <span class="o">&lt;</span><span class="n">destination</span><span class="o">&gt;</span>
+<span class="err">$</span> <span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">a</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;&lt;Commit Message&gt;&quot;</span>
+<span class="err">$</span> <span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">origin</span> <span class="n">git</span><span class="vi">@github</span><span class="o">.</span><span class="n">com</span><span class="ss">:username</span><span class="o">/</span><span class="n">reponame</span><span class="o">.</span><span class="n">git</span>
+<span class="err">$</span> <span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">master</span>
+</code></pre></div>
+
+<p>These commands generate the site locally and push the copy of the site to Github, which then gets pulled by FTPloy and it pushes the files to my web-server via FTP. Most of the time the changes can be seen instantaneously and really adds in to the experience.</p>
+
+<p>FTPloy&#8217;s free plan includes the ability to have one project with no limit on the deployment one could make in a single day. FTPloy also offers a simple sign-up and getting started with the deployment process is like eating a pie.</p>
+
+<br>
+                    <p><i class="icon-tags"></i>&nbsp;Tagged with <a href="/tags/index.html#Github" data-toggle="tooltip" title="Posts tagged with Github" rel="tag">Github</a>&nbsp;&bull;&nbsp;<a href="/tags/index.html#FTPloy" data-toggle="tooltip" title="Posts tagged with FTPloy" rel="tag">FTPloy</a>&nbsp;&bull;&nbsp;<a href="/tags/index.html#Deployment" data-toggle="tooltip" title="Posts tagged with Deployment" rel="tag">Deployment</a></p></div>
+                
+            </div>
+            <footer class="post-footer">
+                <div class="row">
+                    <div class="post-share text-center bordered bordered-bottom col-md-8 col-md-offset-2">
+                        <p class="light">
+                            Share this post
+                        </p>
+                        <ul class="social-mini">
+                            <li>
+                                <a href="https://twitter.com/intent/tweet?text=&quot;Deploying this site: Github and FTPloy&quot;%20/personal/deploying-this-site%20via%20&#64;hmfaysal"
+                                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter">
+                                    <i class="icon-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a  href="https://www.facebook.com/sharer/sharer.php?u=/personal/deploying-this-site"
+                                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" data-toggle="tooltip" title="Share on Facebook">
+                                    <i class="icon-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://plus.google.com/share?url=/personal/deploying-this-site"
+                               onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" data-toggle="tooltip" title="Share on Google plus">
+                                    <i class="icon-google-plus"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                
+                        <div class="post-author row">
+	<div class="col-md-2 text-center">
+        <img src="/images/hmfaysal.jpg" alt="Hossain Mohd Faysal's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
+     </div>
+<div class="col-md-8">
+	<h4 class="small-screen-center">By <a href="/about" data-toggle="tooltip" title="About Hossain Mohd Faysal" target="_self" itemscope itemtype="http://schema.org/Person">Hossain Mohd Faysal</a></h4>
+        <p class="lead">Hossain Mohammad Faysal is an Electrical Engineer and a Mathematician based in Doha, Qatar. His interests are anything that&#8217;s related to math, from math itself to programming languages to music to physics to engineering to philosophy.</p>
+</div> 
+                        <div id="disqus_thread"></div><!-- /#disqus_thread -->
+                    </div>
+                    
+                </div>
+
+            </footer>
+
+            
+
+        </article>
+    </div>
+</div>
+    <footer id="footer"  class="text-center" style="background-image: url(/images/machine.jpg)" >
+    <div class="container">
+        <ul class="social-icons">
+            <li>
+                <a href="http://social.hmfaysal.tk/index.php?a=profile&u=hmfaysal" title="Hossain Mohd Faysal on HMFaysal Social" target="_blank">
+                    <i class="icon-coffee"></i>
+                </a>
+            </li>
+            <li>
+                <a href="http://twitter.com/hmfaysal" title="Hossain Mohd Faysal on Twitter" target="_blank">
+                    <i class="icon-twitter"></i>
+                </a>
+            </li>
+            <li>
+                <a href="http://facebook.com/hmfaysal" title="Hossain Mohd Faysal on Facebook" target="_blank">
+                    <i class="icon-facebook"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://plus.google.com/u/0/102602916593522619858" title="Hossain Mohd Faysal on Google+" target="_blank">
+                    <i class="icon-google-plus"></i>
+                </a>
+            </li>
+        	<li>
+        	 	<a href="https://stackexchange.com/users/3402032/hossain-mohd-faysal" title="Hossain Mohd Faysal on StackExchange" target="_blank">
+                    <i class="icon-stackexchange"></i>
+                </a>
+            </li>
+            
+            
+            <li>
+                <a href="http://github.com/hmfaysal" title="Hossain Mohd Faysal on Github" target="_blank">
+                    <i class="icon-github"></i>
+                </a>
+            </li>
+        </ul>
+        <p class="copy-text">
+        	<a href="/about/">Hossain Mohd Faysal</a> &copy; 2014 &bull; All rights reserved.
+        </p>
+        <ul class="menu-items">
+            
+			<li>
+				
+					<a href="/"><i class="icon-home"></i></a>&nbsp;&bull;
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="/about">About</a>&nbsp;&bull;
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="/categories">Categories</a>&nbsp;&bull;
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="/tags">Tags</a>&nbsp;&bull;
+				 
+			</li>
+	        
+			<li>
+				
+					<a href="/technical-details">Technical</a>&nbsp;&bull;
+				 
+			</li>
+	        
+	        <li><a href="/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+	        &nbsp;&bull;<li class="dosearch"><i class="icon-search"></i> Search</li>
+        </ul>
+    </div>
+</footer>
+
+    
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/script.js"></script>
+<script src="/assets/js/scripts.min.js"></script>
+
+<!-- Jekyll Simple Search option -->
+<script>
+  $(document).ready(function() {
+      $('.search-field').simpleJekyllSearch({
+          jsonFile : '/search.json',
+          searchResults : '.search-results',
+          template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
+          noResults: '<p>Nothing found.</p>'
+        });
+  });
+
+  (function( $, window, undefined ) {
+    
+     var bs = {
+          close: $(".icon-remove-sign"),
+          searchform: $(".search-form"),
+          canvas: $("body"),
+          dothis: $('.dosearch')
+      };
+    
+    bs.dothis.on('click', function() {
+      $('.search-wrapper').css({ display: "block" });
+      bs.searchform.toggleClass('active');
+      bs.searchform.find('input').focus();
+      bs.canvas.toggleClass('search-overlay');
+    });
+    
+      bs.close.on('click', function() {
+        $('.search-wrapper').removeAttr( 'style' );
+        bs.searchform.toggleClass('active');
+        bs.canvas.removeClass('search-overlay');
+    });
+  })( jQuery, window );
+</script>
+
+<script>
+/*globals jQuery, document */
+(function ($) {
+    "use strict";
+
+    $(document).ready(function () {
+
+        // Tooltip init
+        tooltipInit();
+
+        // Init the posts
+        postInit();
+
+    });
+
+
+    // Init bootstrap tooltip
+
+
+    function tooltipInit() {
+        $('[data-toggle]').tooltip();
+    }
+
+
+
+}(jQuery));
+</script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl = 
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-39365944-7']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'hmfaysal'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>  
+</body>
+</html>
