@@ -14,7 +14,7 @@ tags: [Hossain, Mohd, Faysal, electrical, engineering, blog, university, pennsyl
             <div class="post-info text-center bordered-top col-md-2">
                 <time datetime="{{ post.date | date_to_xmlschema }}" class="post-time">{{ post.date | date: "%d %b %Y" }}</time>
                  in <span class="post-tags">{{ post.categories | join: ', ' | capitalize }}</span>
-                 <span class="post-tags">{% if readtime == 1 %}
+                 <span class="post-tags"><i class="icon-time"></i>{% if readtime == 1 %}
                     1 minute read
                     {% endif %}
                     {% if readtime > 1 %}
@@ -26,8 +26,8 @@ tags: [Hossain, Mohd, Faysal, electrical, engineering, blog, university, pennsyl
             </div>
             <div class="post-body bordered-bottom col-md-8">
                 <p>{{ post.content | strip_html | truncatewords:100 }}&hellip;</p>
-                <a href="{{ site.url }}{{ post.url }}" {% if post.description %}data-toggle="tooltip" title="{{ post.description }}"{% endif %}>
-                    read more...
+                <a href="{{ site.url }}{{ post.url }}" {% if post.description %}data-toggle="tooltip" title="{{ post.description }}"{% else %}title="Read more about {{ post.title }}"{% endif %}>
+                    <i class="icon-link"></i> read more...
                 </a>
             </div>
         </article>
