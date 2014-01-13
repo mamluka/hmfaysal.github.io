@@ -1,8 +1,13 @@
 <div class="post-author row">
-	<div class="col-md-2 text-center">
+    
+    <div class="col-md-2 text-center">
+    
         <img src="{{site.url}}/images/{{ site.owner.avatar }}" alt="{{ site.owner.name }}'s photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
-     </div>
-<div class="col-md-8">
-	<h4 class="small-screen-center">By <a href="{{ site.url }}/about" title="About {{ site.owner.name }}" target="_self" itemscope itemtype="http://schema.org/Person">{{ site.owner.name }}</a></h4>
+    
+    </div>
+    <div class="col-md-8">
+        <h4 class="small-screen-center">By {{ site.owner.name }}</h4>
         <p class="lead">{{ site.owner.description }}</p>
+    </div>
+    
 </div>
