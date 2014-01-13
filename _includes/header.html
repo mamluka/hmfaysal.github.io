@@ -1,11 +1,11 @@
 {% if page.image.feature %}
-<header class="blog-header header-white header-overlay align-center align-middle" style="background-image: url({{ site.url }}/images/{{ page.image.feature }})">
+<header class="blog-header header-white header-overlay align-center align-middle" style="background-image: url({{ site.url }}/images/{{ page.image.feature }})" itemscope itemtype="http://schema.org/Organization">
 {% else %} 
-<header class="blog-header header-white header-overlay align-center align-middle" style="background-image: url({{ site.url }}/images/{{ site.default_bg }})">
+<header class="blog-header header-white header-overlay align-center align-middle" style="background-image: url({{ site.url }}/images/{{ site.default_bg }})" itemscope itemtype="http://schema.org/Organization">
 {% endif %}
 {% if page.headline %}
 <div class="header-inner">
-    <div class="container" itemscope itemtype="http://schema.org/Organization">
+    <div class="container">
         <a class="brand light" href="{{ site.url }}" role="banner" itemprop="url">
                 <img itemprop="logo" src="{{ site.url }}/images/{{ site.logo }}" alt="{{ site.title }} Logo">
         <h1 class="blog-title light" itemprop="name">
@@ -22,7 +22,7 @@
     <div class="container">
         <a class="brand light" href="{{ site.url }}" role="banner" itemprop="url">
                 <img itemprop="logo" src="{{ site.url }}/images/{{ site.logo }}" alt="Blog Logo">
-        <h2 class="blog-title light" itemscope itemtype="http://schema.org/Organization">
+        <h2 class="blog-title light" itemprop="name">
             {{ site.title }}
         </h2>
         </a>
