@@ -6,7 +6,13 @@ headline: An Engineer's Diary
 tags: [Hossain, Mohd, Faysal, electrical, engineering, blog, university, pennsylvania, doha, Qatar]
 ---
 {% for post in paginator.posts limit:10 %} 
-{% assign readtime = post.content | strip_html | number_of_words | divided_by:180 %}
+{% assign ert = post.content | strip_html | number_of_words | divided_by:180 %}
+{% assign ertremainder = post.content | strip_html | number_of_words | modulo:180 %}
+{% if ertremainder >= 90 %}
+{% assign readtime = ert | plus:1 %}
+{% else %}
+{% assign readtime = ert %}
+{% endif %}
 {% assign modifiedtime = post.modified | date: "%Y%m%d" %} 
 {% assign posttime = post.date | date: "%Y%m%d" %} 
     {% if post.type == 'quote' %}
@@ -38,9 +44,15 @@ tags: [Hossain, Mohd, Faysal, electrical, engineering, blog, university, pennsyl
                         </li>
                     </ul>
             <div class="post-body bordered-bottom text-center">
-                <a href="{{ site.url }}{{ post.url }}" {% if post.description %}data-toggle="tooltip" title="{{ post.description }}"{% else %}title="Read more about {{ post.title }}"{% endif %}>
-                    <i class="icon-link"></i> read more...
+                {% if post.description %}
+                <a href="{{ site.url }}{{ post.url }}" data-toggle="tooltip" title="{{ post.description }}">
+                    <i class="icon-link"></i> permalink...
                 </a>
+                {% else %}
+                <a href="{{ site.url }}{{ post.url }}" data-toggle="tooltip" title="Read more about {{ post.title }}">
+                    <i class="icon-link"></i> permalink...
+                </a>
+                {% endif %}
             </div>
         </article>
     {% endif %}
@@ -79,9 +91,33 @@ tags: [Hossain, Mohd, Faysal, electrical, engineering, blog, university, pennsyl
             </div>
         </article>
     {% endif %}
-    {% if post.type == null %}
+    {% if post.type == 'video' %}
         <article class="post row">
-            <h2 class="post-title text-center super lighter">
+            <h2 class="post-title text-center super lighter col-md-10 col-md-offset-1">
+                <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+            </h2>
+            <div class="post-body bordered-bottom col-md-10 col-md-offset-1">
+                <p>{{ post.excerpt }}</p>
+                <div class="light small text-center">
+                Video posted @ <time datetime="{{ post.date | date_to_xmlschema }}" >{{ post.date | date: "%d %b %Y" }}</time>{% if post.modified %}{% if modifiedtime != posttime %} and last modified on <time datetime="{{ post.modified | date: "%Y-%m-%d" }}" itemprop="dateModified">{{ post.modified | date: "%d %b %Y" }}</time>{% endif %}{% endif %}
+                in <span>{% for tag in post.categories %}<a href="{{ site.url }}/categories/index.html#{{ post.categories | cgi_encode }}" data-toggle="tooltip" title="Other posts from the {{ tag | capitalize }} category" rel="tag">{{ tag | capitalize }}</a>{% unless forloop.last %}&nbsp;&bull;&nbsp;{% endunless %}{% endfor %}</span><span>&nbsp;by {{ site.owner.name }}</span>
+                <span class = "post-tags">
+                {% if post.description %}
+                <a href="{{ site.url }}{{ post.url }}" data-toggle="tooltip" title="{{ post.description }}">
+                    <i class="icon-link"></i> see more...
+                </a>
+                {% else %}
+                <a href="{{ site.url }}{{ post.url }}" data-toggle="tooltip" title="Read more about {{ post.title }}">
+                    <i class="icon-link"></i> see more...
+                </a>
+                {% endif %}
+                </span>
+            </div>
+        </article>
+    {% endif %}
+    {% if post.type != 'video' and post.type != 'status' and post.type != 'quote' %}
+        <article class="post row">
+            <h2 class="post-title text-center super lighter col-md-10 col-md-offset-1">
                 <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
             </h2>
             <div class="post-info text-center bordered-top col-md-2">
@@ -90,11 +126,17 @@ tags: [Hossain, Mohd, Faysal, electrical, engineering, blog, university, pennsyl
                  <span class="post-tags"><i class="icon-time"></i>&nbsp;{% if readtime == 1 %}1 minute read{% endif %}{% if readtime > 1 %}{{ readtime }} minutes read{% endif %}{% if readtime == 0 %}Less than 1 minute read{% endif %}
                 </span>
             </div>
-            <div class="post-body bordered-bottom col-md-9">
+            <div class="post-body bordered-bottom col-md-8">
                 <p>{{ post.content | strip_html | truncatewords:100 }}&hellip;</p>
-                <a href="{{ site.url }}{{ post.url }}" {% if post.description %}data-toggle="tooltip" title="{{ post.description }}"{% else %}title="Read more about {{ post.title }}"{% endif %}>
+                {% if post.description %}
+                <a href="{{ site.url }}{{ post.url }}" data-toggle="tooltip" title="{{ post.description }}">
                     <i class="icon-link"></i> read more...
                 </a>
+                {% else %}
+                <a href="{{ site.url }}{{ post.url }}" data-toggle="tooltip" title="Read more about {{ post.title }}">
+                    <i class="icon-link"></i> read more...
+                </a>
+                {% endif %}
             </div>
         </article>
     {% endif %}

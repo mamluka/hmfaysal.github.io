@@ -597,37 +597,7 @@ address {
   font-style: normal;
   line-height: 1.5;
 }
-code {
-  padding: 2px 4px;
-  font-size: 90%;
-  color: #c7254e;
-  background-color: #f9f2f4;
-  white-space: nowrap;
-  border-radius: 5px;
-}
-pre {
-  display: block;
-  padding: 11.5px;
-  margin: 0 0 12px;
-  word-break: break-all;
-  border: 1px solid #cccccc;
-  border-radius: 5px;
-}
-pre.prettyprint {
-  margin-bottom: 24px;
-}
-pre code {
-  padding: 0;
-  font-size: inherit;
-  color: inherit;
-  white-space: pre;
-  background-color: transparent;
-  border: 0;
-}
-.pre-scrollable {
-  max-height: 340px;
-  overflow-y: scroll;
-}
+
 .container {
   margin-right: auto;
   margin-left: auto;

@@ -3,14 +3,20 @@
 <head>
 {% include head.html %}
 </head>
-<body class="post-template tag-minimal tag-design tag-jurney">
+<body class="post-template">
 {% include header.html %}
 <div id="main" class="content" role="main">
     <div class="container">
 
         <article class="post">
             <div class="row">
-            {% assign readtime = page.content | strip_html | number_of_words | divided_by:180 %}
+            {% assign ert = page.content | strip_html | number_of_words | divided_by:180 %}
+            {% assign ertremainder = page.content | strip_html | number_of_words | modulo:180 %}
+            {% if ertremainder >= 90 %}
+            {% assign readtime = ert | plus:1 %}
+            {% else %}
+            {% assign readtime = ert %}
+            {% endif %}
             {% assign modifiedtime = page.modified | date: "%Y%m%d" %} 
             {% assign posttime = page.date | date: "%Y%m%d" %} 
                 {% if page.link %}

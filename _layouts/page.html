@@ -3,11 +3,10 @@
 <head>
 {% include head.html %}
 </head>
-<body class="post-template tag-minimal tag-design tag-jurney">
+<body class="page-template" itemscope itemtype="http://schema.org/WebPage">
 {% include header.html %}
-<div id="main" class="content" role="main">
+<div id="main" class="content" role="main" itemprop="mainContentOfPage">
     <div class="container">
-
         <article class="post">
             <div class="row">
                 {% if page.link %}
@@ -15,7 +14,7 @@
                 {% else %}
                     <h1 class="post-title text-center hyper lighter" itemprop="headline">{{ page.title }}</h1>
                 {% endif %}
-                <div class="post-body col-md-10 col-md-offset-1">
+                <div class="page-body col-md-10 col-md-offset-1">
                     {{ content }}
                 </div>
             </div>

@@ -515,6 +515,9 @@ html {
 .post-body img {
   max-width: 100%;
 }
+.page-body img {
+  max-width: 100%;
+}
 /* - Post Share - */
 .post-share {
   margin-bottom: 48px;
@@ -3108,22 +3111,41 @@ img.mfp-img {
     -moz-border-radius: 4px;
     border-radius: 4px;
 }
-p code,li code {
-    padding: 0 5px;
-    margin: 0 2px;
-    white-space: nowrap;
-    background-color: #f2f2f2;
-    border: 1px solid #e6e6e6;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  white-space: nowrap;
+  border-radius: 5px;
 }
-
 pre {
-    white-space: pre;
-    overflow-x: auto;
-    border: 1px solid #999;
-    page-break-inside: avoid;
+  display: block;
+  padding: 11.5px;
+  margin: 0 0 12px;
+  word-break: break-all;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  white-space: pre;
+  overflow-x: auto;
+  page-break-inside: avoid;
+}
+pre.prettyprint {
+  margin-bottom: 24px;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+  white-space: pre;
+  background-color: transparent;
+  border: 0;
+  overflow-x: auto;
+  page-break-inside: avoid;
+}
+.pre-scrollable {
+  max-height: 340px;
+  overflow-y: scroll;
 }
 
 pre::-webkit-scrollbar {
