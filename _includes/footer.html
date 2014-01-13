@@ -1,4 +1,8 @@
-{% if page.image.feature %}<footer id="footer"  class="text-center" style="background-image: url({{ site.url }}/images/{{ page.image.feature }})" >{% else %}<footer id="footer"  class="text-center" style="background-image: url({{ site.url }}/images/{{ site.default_bg }})" >{% endif %}
+{% if page.image.feature %}
+<footer id="footer" class="text-center" itemprop="image" style="background-image: url({{ site.url }}/images/{{ page.image.feature }})">
+{% else %}
+<footer id="footer" class="text-center" itemprop="image" style="background-image: url({{ site.url }}/images/{{ site.default_bg }})">
+{% endif %}
     <div class="container">
         <ul class="social-icons">
             {% if site.owner.hmfaysalsocial %}<li>
@@ -45,7 +49,7 @@
         <p class="copy-text">
         	<a href="{{ site.url }}/about/">{{ site.owner.name }}</a> &copy; {{ site.time | date: '%Y' }} &bull; All rights reserved.
         </p>
-        <ul class="menu-items">
+        <ul class="menu-items" itemscope itemtype="http://schema.org/SiteNavigationElement">
             {% for link in site.links %}
 			<li>
 				{% if link.external %}
