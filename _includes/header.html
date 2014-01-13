@@ -5,10 +5,10 @@
 {% endif %}
 {% if page.headline %}
 <div class="header-inner">
-    <div class="container">
-        <a class="brand light" href="{{ site.url }}" role="banner" >
+    <div class="container" itemscope itemtype="http://schema.org/Organization">
+        <a class="brand light" href="{{ site.url }}" role="banner" itemprop="url">
                 <img itemprop="logo" src="{{ site.url }}/images/{{ site.logo }}" alt="{{ site.title }} Logo">
-        <h1 class="blog-title light" itemscope itemtype="http://schema.org/Organization">
+        <h1 class="blog-title light" itemprop="name">
             {{ site.title }}
         </h1>
         </a>
@@ -20,7 +20,7 @@
 {% else %}
 <div class="header-inner">
     <div class="container">
-        <a class="brand light" href="{{ site.url }}" role="banner" >
+        <a class="brand light" href="{{ site.url }}" role="banner" itemprop="url">
                 <img itemprop="logo" src="{{ site.url }}/images/{{ site.logo }}" alt="Blog Logo">
         <h2 class="blog-title light" itemscope itemtype="http://schema.org/Organization">
             {{ site.title }}
