@@ -86,7 +86,7 @@ tags: [Hossain, Mohd, Faysal, electrical, engineering, blog, university, pennsyl
                     </ul>
             <div class="light small text-center">
                 Status posted on <time datetime="{{ post.date | date_to_xmlschema }}" >{{ post.date | date: "%d %b %Y" }}</time>{% if post.modified %}{% if modifiedtime != posttime %} and last modified on <time datetime="{{ post.modified | date: "%Y-%m-%d" }}" itemprop="dateModified">{{ post.modified | date: "%d %b %Y" }}</time>{% endif %}{% endif %}
-                in <span><a href="{{ site.url }}/categories/index.html#{{ post.categories | cgi_encode }}" data-toggle="tooltip" title="Other posts from the {{ post.categories }} category" rel="tag">{{ post.categories | join: ', ' | capitalize }}</a></span>&nbsp;<span >by {{ site.owner.name }}</span>
+                in <span>{% for tag in post.categories %}<a href="{{ site.url }}/categories/index.html#{{ post.categories | cgi_encode }}" data-toggle="tooltip" title="Other posts from the {{ tag | capitalize }} category" rel="tag">{{ tag | capitalize }}</a>{% unless forloop.last %}&nbsp;&bull;&nbsp;{% endunless %}{% endfor %}</span>&nbsp;<span >by {{ site.owner.name }}</span>
                 <div class="post-body bordered-bottom"></div>
             </div>
         </article>
