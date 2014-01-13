@@ -1,7 +1,7 @@
 {% if page.image.feature %}
-<header class="blog-header header-white header-overlay align-center align-middle" itemprop="image" style="background-image: url({{ site.url }}/images/{{ page.image.feature }})">
+<header class="blog-header header-white header-overlay align-center align-middle" style="background-image: url({{ site.url }}/images/{{ page.image.feature }})">
 {% else %} 
-<header class="blog-header header-white header-overlay align-center align-middle" itemprop="image" style="background-image: url({{ site.url }}/images/{{ site.default_bg }})">
+<header class="blog-header header-white header-overlay align-center align-middle" style="background-image: url({{ site.url }}/images/{{ site.default_bg }})">
 {% endif %}
 {% if page.headline %}
 <div class="header-inner">
