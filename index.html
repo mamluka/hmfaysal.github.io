@@ -295,16 +295,16 @@ tags: [Hossain, Mohd, Faysal, electrical, engineering, blog, university, pennsyl
     {% if paginator.previous_page %}
       {% if paginator.previous_page == 1 %}
         <li>
-          <a href="/">&laquo;</a>
+          <a href="{{ site.url }}/">&laquo;</a>
         </li>
       {% else %}
         <li>
-          <a href="/page{{paginator.previous_page}}">&laquo;</a>
+          <a href="{{ site.url }}/page{{paginator.previous_page}}">&laquo;</a>
         </li>
       {% endif %}
     {% else %}
       <li class="disabled">
-        <a href="#">&laquo;</a>
+        <a>&laquo;</a>
       </li>
     {% endif %}
     {% if page_start == 1 %}
@@ -312,32 +312,32 @@ tags: [Hossain, Mohd, Faysal, electrical, engineering, blog, university, pennsyl
     {% assign page_start = 2 %}
     {% if paginator.page == 1 %}
       <li class="active">
-        <a href="#">1</a>
+        <a>1</a>
       </li>
     {% else %}
       <li>
-        <a href="/">1</a>
+        <a href="{{ site.url }}/">1</a>
       </li>
     {% endif %}
     {% endif %}
     {% for count in (page_start..page_end) %}
       {% if count == paginator.page %}
         <li class="active">
-          <a href="#">{{count}}</a>
+          <a>{{count}}</a>
         </li>
       {% else %}
         <li>
-          <a href="/page{{count}}">{{count}}</a>
+          <a href="{{ site.url }}/page{{count}}">{{count}}</a>
         </li>
       {% endif %}
     {% endfor %}
     {% if paginator.next_page %}
       <li>
-        <a href="/page{{paginator.next_page}}">&raquo;</a>
+        <a href="{{ site.url }}/page{{paginator.next_page}}">&raquo;</a>
       </li>
     {% else %}
       <li class="disabled">
-        <a href="#">&raquo;</a>
+        <a>&raquo;</a>
       </li>
     {% endif %}
     {% if paginator.total_pages > 5 %} 
