@@ -32,7 +32,7 @@ function postInit() {
     // Set feature image
     var featured = $('.featured-image').find('img').attr('src');
     if (featured) {
-        $('.post-header').css('backgroundImage','url('+featured+')');
+        $('.blog-header').css('backgroundImage','url('+featured+')');
         $('#footer').css('backgroundImage','url('+featured+')');
     };
 }
