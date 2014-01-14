@@ -6,15 +6,15 @@ headline: An Engineer's Diary
 tags: [Hossain, Mohd, Faysal, electrical, engineering, blog, university, pennsylvania, doha, Qatar]
 ---
 {% for post in paginator.posts limit:10 %}
-	{% assign ert = post.content | strip_html | number_of_words | divided_by:180 %}
-	{% assign ertremainder = post.content | strip_html | number_of_words | modulo:180 %}
-	{% if ertremainder >= 90 %}
-	{% assign readtime = ert | plus:1 %}
-	{% else %}
-	{% assign readtime = ert %}
-	{% endif %}
-	{% assign modifiedtime = post.modified | date: "%Y%m%d" %}
-	{% assign posttime = post.date | date: "%Y%m%d" %}
+    {% assign ert = post.content | strip_html | number_of_words | divided_by:180 %}
+    {% assign ertremainder = post.content | strip_html | number_of_words | modulo:180 %}
+    {% if ertremainder >= 90 %}
+    {% assign readtime = ert | plus:1 %}
+    {% else %}
+    {% assign readtime = ert %}
+    {% endif %}
+    {% assign modifiedtime = post.modified | date: "%Y%m%d" %}
+    {% assign posttime = post.date | date: "%Y%m%d" %}
     {% if post.type == 'quote' %}
         <article class="col-md-10 col-md-offset-1">
             <h2 class="post-title text-center super lighter">
@@ -93,7 +93,7 @@ tags: [Hossain, Mohd, Faysal, electrical, engineering, blog, university, pennsyl
     {% endif %}
     {% if post.type == 'video' %}
         <article class="post post row">
-        	{% if post.link %}
+            {% if post.link %}
             <h2 class="post-title text-center super lighter col-md-10 col-md-offset-1">
                 <a href="{{ site.url }}{{ post.url }}"><i class="icon-link"></i> {{ post.title }}</a>
             {% else %}
@@ -103,7 +103,7 @@ tags: [Hossain, Mohd, Faysal, electrical, engineering, blog, university, pennsyl
             </h2>
             <div class="post-body bordered-bottom col-md-10 col-md-offset-1">
                 {% if post.video %}
-        		{% assign video_embed = post.video | remove:'http://www.youtube.com/watch?v=' %}
+                {% assign video_embed = post.video | remove:'http://www.youtube.com/watch?v=' %}
                 <p><iframe width="940" height="529" src="//www.youtube.com/embed/{{ video_embed }}?theme=light&amp;color=white" frameborder="0" allowfullscreen> </iframe></p>
                 <p>{{ post.content | strip_html | truncatewords:100 }}&hellip;</p>
                 {% else %}
@@ -129,8 +129,8 @@ tags: [Hossain, Mohd, Faysal, electrical, engineering, blog, university, pennsyl
     {% endif %}
         {% if post.type == 'photo' %}
         <article class="post post row">
-        	{% if post.photo %}<figure><a href="{{ site.url }}{{ post.url }}"><img src="{{ site.url }}/images/{{ post.photo }}" alt="{{ post.title }}" itemprop="image"></a></figure>{% else %}<figure class="col-md-10 col-md-offset-1"><a href="{{ site.url }}{{ post.url }}"><img src="{{ site.url }}/images/{{ post.image.feature }}" alt="{{ post.title }}" itemprop="image"></a></figure>{% endif %}
-        	{% if post.link %}
+            {% if post.photo %}<figure><a href="{{ site.url }}{{ post.url }}"><img src="{{ site.url }}/images/{{ post.photo }}" alt="{{ post.title }}" itemprop="image"></a></figure>{% else %}<figure class="col-md-10 col-md-offset-1"><a href="{{ site.url }}{{ post.url }}"><img src="{{ site.url }}/images/{{ post.image.feature }}" alt="{{ post.title }}" itemprop="image"></a></figure>{% endif %}
+            {% if post.link %}
             <h2 class="post-title text-center super lighter col-md-10 col-md-offset-1">
                 <a href="{{ site.url }}{{ post.url }}"><i class="icon-link"></i> {{ post.title }}</a>
             {% else %}
@@ -160,7 +160,7 @@ tags: [Hossain, Mohd, Faysal, electrical, engineering, blog, university, pennsyl
     {% endif %}
     {% if post.type != 'video' and post.type != 'status' and post.type != 'quote' and post.type != 'photo' %}
         <article class="post post row">
-        	{% if post.link %}
+            {% if post.link %}
             <h2 class="post-title text-center super lighter col-md-10 col-md-offset-1">
                 <a href="{{ site.url }}{{ post.url }}"><i class="icon-link"></i> {{ post.title }}</a>
             {% else %}
@@ -188,151 +188,170 @@ tags: [Hossain, Mohd, Faysal, electrical, engineering, blog, university, pennsyl
             </div>
         </article>
     {% endif %}
-{% endfor %}        
-     
+{% endfor %}
+
 {% if paginator.total_pages != 1 %} 
-	{% if site.paginate_path != 'page:num'%}
-		{% assign paginate_url = site.paginate_path | remove:'page:num' %}
-		<div class="page-body col-md-12">
-		  <ul class="pagination pagination-centered">
-		    {% if paginator.total_pages >= 10 %} 
-		    {% if paginator.previous_page %}
-		        <li>
-		          <a href="{{ site.url }}/{{ paginate_url }}">&laquo;&laquo;</a>
-		        </li>
-		    {% else %}
-		      <li class="disabled">
-		        <a>&laquo;&laquo;</a>
-		      </li>
-		    {% endif %}
-		    {% endif %}
-		    {% if paginator.previous_page %}
-		      {% if paginator.previous_page == 1 %}
-		        <li>
-		          <a href="{{ site.url }}/{{ paginate_url }}">&laquo;</a>
-		        </li>
-		      {% else %}
-		        <li>
-		          <a href="{{ site.url }}/{{ paginate_url }}page{{paginator.previous_page}}">&laquo;</a>
-		        </li>
-		      {% endif %}
-		    {% else %}
-		      <li class="disabled">
-		        <a>&laquo;</a>
-		      </li>
-		    {% endif %}
-		    {% if paginator.page == 1 %}
-		      <li class="active">
-		        <a>1</a>
-		      </li>
-		    {% else %}
-		      <li>
-		        <a href="{{ site.url }}/{{ paginate_url }}">1</a>
-		      </li>
-		    {% endif %}
-		    {% for count in (2..paginator.total_pages) %}
-		      {% if count == paginator.page %}
-		        <li class="active">
-		          <a>{{count}}</a>
-		        </li>
-		      {% else %}
-		        <li>
-		          <a href="{{ site.url }}/{{ paginate_url }}page{{count}}">{{count}}</a>
-		        </li>
-		      {% endif %}
-		    {% endfor %}
-		    {% if paginator.next_page %}
-		      <li>
-		        <a href="{{ site.url }}/{{ paginate_url }}page{{paginator.next_page}}">&raquo;</a>
-		      </li>
-		    {% else %}
-		      <li class="disabled">
-		        <a>&raquo;</a>
-		      </li>
-		    {% endif %}
-		    {% if paginator.total_pages >= 10 %} 
-		    {% if paginator.next_page %}
-		      <li>
-		        <a href="{{ site.url }}/{{ paginate_url }}page{{paginator.total_pages}}">&raquo;&raquo;</a>
-		      </li>
-		    {% else %}
-		      <li class="disabled">
-		        <a>&raquo;&raquo;</a>
-		      </li>
-		    {% endif %}
-		    {% endif %}
-		  </ul>
-		</div>
-	{% else %}
-		<div class="page-body col-md-12">
-		  <ul class="pagination pagination-centered">
-		    {% if paginator.total_pages >= 10 %} 
-		    {% if paginator.previous_page %}
-		        <li>
-		          <a href="{{ site.url }}/">&laquo;&laquo;</a>
-		        </li>
-		    {% else %}
-		      <li class="disabled">
-		        <a>&laquo;&laquo;</a>
-		      </li>
-		    {% endif %}
-		    {% endif %}
-		    {% if paginator.previous_page %}
-		      {% if paginator.previous_page == 1 %}
-		        <li>
-		          <a href="{{ site.url }}/">&laquo;</a>
-		        </li>
-		      {% else %}
-		        <li>
-		          <a href="{{ site.url }}/page{{paginator.previous_page}}">&laquo;</a>
-		        </li>
-		      {% endif %}
-		    {% else %}
-		      <li class="disabled">
-		        <a>&laquo;</a>
-		      </li>
-		    {% endif %}
-		    {% if paginator.page == 1 %}
-		      <li class="active">
-		        <a>1</a>
-		      </li>
-		    {% else %}
-		      <li>
-		        <a href="{{ site.url }}/">1</a>
-		      </li>
-		    {% endif %}
-		    {% for count in (2..paginator.total_pages) %}
-		      {% if count == paginator.page %}
-		        <li class="active">
-		          <a>{{count}}</a>
-		        </li>
-		      {% else %}
-		        <li>
-		          <a href="{{ site.url }}/page{{count}}">{{count}}</a>
-		        </li>
-		      {% endif %}
-		    {% endfor %}
-		    {% if paginator.next_page %}
-		      <li>
-		        <a href="{{ site.url }}/page{{paginator.next_page}}">&raquo;</a>
-		      </li>
-		    {% else %}
-		      <li class="disabled">
-		        <a>&raquo;</a>
-		      </li>
-		    {% endif %}
-		    {% if paginator.total_pages >= 10 %} 
-		    {% if paginator.next_page %}
-		      <li>
-		        <a href="{{ site.url }}/page{{paginator.total_pages}}">&raquo;&raquo;</a>
-		      </li>
-		    {% else %}
-		      <li class="disabled">
-		        <a>&raquo;&raquo;</a>
-		      </li>
-		    {% endif %}
-		    {% endif %}
-		  </ul>
-		</div>
-	{% endif %}
+{% if paginator.total_pages < 7 %}
+        <div class="page-body col-md-12">
+          <ul class="pagination pagination-centered">
+            {% if paginator.total_pages >= 10 %} 
+            {% if paginator.previous_page %}
+                <li>
+                  <a href="{{ site.url }}/">&laquo;&laquo;</a>
+                </li>
+            {% else %}
+              <li class="disabled">
+                <a>&laquo;&laquo;</a>
+              </li>
+            {% endif %}
+            {% endif %}
+            {% if paginator.previous_page %}
+              {% if paginator.previous_page == 1 %}
+                <li>
+                  <a href="{{ site.url }}/">&laquo;</a>
+                </li>
+              {% else %}
+                <li>
+                  <a href="{{ site.url }}/page{{paginator.previous_page}}">&laquo;</a>
+                </li>
+              {% endif %}
+            {% else %}
+              <li class="disabled">
+                <a>&laquo;</a>
+              </li>
+            {% endif %}
+            {% if paginator.page == 1 %}
+              <li class="active">
+                <a>1</a>
+              </li>
+            {% else %}
+              <li>
+                <a href="{{ site.url }}/">1</a>
+              </li>
+            {% endif %}
+            {% for count in (2..paginator.total_pages) %}
+              {% if count == paginator.page %}
+                <li class="active">
+                  <a>{{count}}</a>
+                </li>
+              {% else %}
+                <li>
+                  <a href="{{ site.url }}/page{{count}}">{{count}}</a>
+                </li>
+              {% endif %}
+            {% endfor %}
+            {% if paginator.next_page %}
+              <li>
+                <a href="{{ site.url }}/page{{paginator.next_page}}">&raquo;</a>
+              </li>
+            {% else %}
+              <li class="disabled">
+                <a>&raquo;</a>
+              </li>
+            {% endif %}
+            {% if paginator.total_pages >= 10 %} 
+            {% if paginator.next_page %}
+              <li>
+                <a href="{{ site.url }}/page{{paginator.total_pages}}">&raquo;&raquo;</a>
+              </li>
+            {% else %}
+              <li class="disabled">
+                <a>&raquo;&raquo;</a>
+              </li>
+            {% endif %}
+            {% endif %}
+          </ul>
+        </div>
+{% else %}
+
+{% assign page_start = paginator.page | minus: 2 %}
+{% assign page_end = paginator.page | plus: 2 %}
+{% if page_end > paginator.total_pages %}
+{% assign page_end = paginator.total_pages %}
+{% assign page_start = paginator.page | minus: 4 %}
+{% endif %}
+{% if page_start < 2 %}
+{% assign page_end = paginator.page | plus: 3 %}
+{% assign page_start = paginator.page | minus: 1 %}
+{% endif %}
+{% if page_start == 0 %}
+{% assign page_end = paginator.page | plus: 4 %}
+{% assign page_start = paginator.page %}
+{% endif %}
+ 
+<div class="page-body col-md-12">
+    <ul class="pagination pagination-centered">
+    {% if paginator.total_pages > 5 %} 
+    {% if paginator.previous_page %}
+        <li>
+          <a href="{{ site.url }}/">&laquo;&laquo;</a>
+        </li>
+    {% else %}
+      <li class="disabled">
+        <a>&laquo;&laquo;</a>
+      </li>
+    {% endif %}
+    {% endif %}
+    {% if paginator.previous_page %}
+      {% if paginator.previous_page == 1 %}
+        <li>
+          <a href="/">&laquo;</a>
+        </li>
+      {% else %}
+        <li>
+          <a href="/page{{paginator.previous_page}}">&laquo;</a>
+        </li>
+      {% endif %}
+    {% else %}
+      <li class="disabled">
+        <a href="#">&laquo;</a>
+      </li>
+    {% endif %}
+    {% if page_start == 1 %}
+    {% assign page_end = paginator.page | plus: 4 %}
+    {% assign page_start = 2 %}
+    {% if paginator.page == 1 %}
+      <li class="active">
+        <a href="#">1</a>
+      </li>
+    {% else %}
+      <li>
+        <a href="/">1</a>
+      </li>
+    {% endif %}
+    {% endif %}
+    {% for count in (page_start..page_end) %}
+      {% if count == paginator.page %}
+        <li class="active">
+          <a href="#">{{count}}</a>
+        </li>
+      {% else %}
+        <li>
+          <a href="/page{{count}}">{{count}}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+    {% if paginator.next_page %}
+      <li>
+        <a href="/page{{paginator.next_page}}">&raquo;</a>
+      </li>
+    {% else %}
+      <li class="disabled">
+        <a href="#">&raquo;</a>
+      </li>
+    {% endif %}
+    {% if paginator.total_pages > 5 %} 
+    {% if paginator.next_page %}
+      <li>
+        <a href="{{ site.url }}/page{{paginator.total_pages}}">&raquo;&raquo;</a>
+      </li>
+    {% else %}
+      <li class="disabled">
+        <a>&raquo;&raquo;</a>
+      </li>
+    {% endif %}
+    {% endif %}
+  </ul>
+</div>
+{% endif %}
 {% endif %}
